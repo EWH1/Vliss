@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="eye care, essential oil, vision improvement, herbal remedy">
+    <meta name="author" content="EWH">
     <title>EWH Eye Disease Essential Oil | Relieve eye fatigue 舒缓眼部疲劳</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"defer></script>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
     <!-- Hero Section -->
-    <section class="relative bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('Energy Wellness Hub.jpg');">
+    <section class="relative bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('/images/Energy Wellness Hub.jpg');">
         <div class="bg-black bg-opacity-50 p-10 text-center text-white rounded-lg">
             <h1 class="text-4xl font-bold">Say goodbye to tired eyes and open up a bright vision
                 告别疲劳双眼，开启光明视界</h1>
@@ -102,16 +104,16 @@
         <!--轮播背景样式-->
         <style>
           .slideshow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: background-image 1.5s ease-in-out;
-            z-index: -1;
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;
+             transition: background-image 1.5s ease-in-out;
+             z-index: -1;
            }
 
            .relative-container {
@@ -123,8 +125,8 @@
     <script>
         //本地轮播背景图（换图片路径）
         document.addEventListener ("DOMContentLoaded",function () {
-        const ingredientImage = [
-            "image/1.jpg",
+        const images = [
+            "/image/1.jpg",
             "/image/2.jpg",
             "/image/3.jpg",
             "/image/4.jpg",
@@ -134,47 +136,31 @@
             "/image/8.jpg"
         ];
         
-        let imgIndex = 0;
-        const slideshowElement = document.querySelector(".slideshow");
-
-        if (!slideshowElement) {
-    console.error("Error: .slideshow element not found!");
-             return;
-        }
+        let index = 0;
+        const slideshow = document.querySelector(".slideshow");
 
         function updateBackground() {
-            console.log(`Updating background to: ${ingredientImage[imgIndex]}`);
-            
-            const imgPath =ingredientImage[imgIndex];
-            console.log(`Image path: ${imgPath}`);
-        slideshowElement.style.backgroundImage = `url(${imgPath})`;
-           imgIndex = (imgIndex + 1) % ingredientImage.length;
+            slideshow.style.backgroundImage =`url(${images[index]})`;
+            index = (index + 1) % images.length;
         }
-
-        //
-        updateBackground();
-        setInterval(updateBackground, 5000);
+         updateBackground();
+         setInterval(updateBackground, 5000);
     });
     </script>
-   
+
    <!-- 详细信息展示 -->
     <section class="py-10 text-center bg-white">
         <h3 id="ingredient-title" class="text-2xl font-bold text-yellow-600">Click to view ingredient details 点击查看成分详情</h3>
         <p id="ingredient-desc" class="mt-2 text-gray-600">Click on the ingredients above to learn more about their effects 点击上方成分了解详细功效</p>
     </section>
     
-    <!---->
+    <!--显示信息 JavaScript-->
     <script>
         function showInfo(title,description){
         
             document.getElementById('ingredient-title').textContent = title;
 
             document.getElementById('ingredient-desc').textContent = description;
-
-            let details = document.getElementById('ingredient-details');
-            if (details){
-                details.classList.remove('hidden');
-            }
         }
     </script>
 </body>
